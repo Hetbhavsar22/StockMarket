@@ -116,7 +116,7 @@ export default function HomePage() {
                   transition={{ delay: 0.2, duration: 0.6 }}
                 >
                   <Badge className="bg-green-500/20 text-green-100 border-green-400/30 backdrop-blur-sm">
-                    SEBI Registered • Trusted by 2M+ Users
+                    AMFI Registered • Trusted by 2M+ Users
                   </Badge>
                 </motion.div>
 
@@ -185,7 +185,14 @@ export default function HomePage() {
                   </Button>
                 </motion.div>
 
-                {/* <motion.div {...scaleOnHover}>
+                <Link
+                  href="https://devharfundsmart.investwell.app/"
+                  className="border-white/30 text-white hover:bg-white/10 px-8 py-2 text-lg backdrop-blur-sm rounded-xl"
+                >
+                  Visit Website
+                </Link>
+
+              {/* <motion.div {...scaleOnHover}>
                   <Button
                     size="lg"
                     variant="outline"

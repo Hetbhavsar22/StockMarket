@@ -18,7 +18,7 @@ export function Footer() {
               India's most trusted investment platform. Start your journey towards financial freedom with stocks, mutual
               funds, and more.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <Link href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Facebook className="h-5 w-5" />
               </Link>
@@ -34,7 +34,7 @@ export function Footer() {
               <Link href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Youtube className="h-5 w-5" />
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* Products */}
@@ -84,21 +84,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/press" className="text-gray-400 hover:text-white transition-colors">
-                  Press
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
                   Contact
                 </Link>
@@ -108,7 +93,7 @@ export function Footer() {
 
           {/* Support */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Support</h3>
+            {/* <h3 className="text-lg font-semibold">Support</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/help" className="text-gray-400 hover:text-white transition-colors">
@@ -135,16 +120,16 @@ export function Footer() {
                   Terms of Service
                 </Link>
               </li>
-            </ul>
+            </ul> */}
 
             <div className="space-y-2 pt-4">
               <div className="flex items-center space-x-2 text-gray-400">
                 <Phone className="h-4 w-4" />
-                <span>1800-123-4567</span>
+                <span>+91 9998156835</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-400">
                 <Mail className="h-4 w-4" />
-                <span>support@devhar.com</span>
+                <span>atul.26778@gmail.com</span>
               </div>
             </div>
           </div>
@@ -152,11 +137,11 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">© 2024 Devhar Technologies Pvt Ltd. All rights reserved.</div>
+            <div className="text-gray-400 text-sm">© {new Date().getFullYear()} Devhar Technologies Pvt Ltd. All rights reserved.</div>
             <div className="flex space-x-6 text-sm text-gray-400">
-              <span>SEBI Reg: INZ000123456</span>
-              <span>IRDAI Reg: 123456789</span>
-              <span>NSE Member: 12345</span>
+              {/* <span>SEBI Reg: INZ000123456</span> */}
+              {/* <span>IRDAI Reg: 123456789</span> */}
+              <span>NSE Member: 06637</span>
             </div>
           </div>
 

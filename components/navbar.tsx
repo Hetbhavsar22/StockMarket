@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Download, X, Play } from "lucide-react"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, Download, X, Play } from "lucide-react";
+import Link from "next/link";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,21 +13,21 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 import Image from "next/image";
-import Logo from "@/public/logo.png"
+import Logo from "@/public/logo.png";
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const products = [
     { name: "Stocks", href: "/products/stocks", description: "Trade in NSE & BSE" },
@@ -36,7 +36,7 @@ export function Navbar() {
     { name: "Insurance", href: "/products/insurance", description: "Term, Health & Life" },
     { name: "Fixed Deposits", href: "/products/fixed-deposits", description: "High-yield FDs" },
     { name: "Gold & ETFs", href: "/products/gold-etfs", description: "Digital gold & ETFs" },
-  ]
+  ];
 
   return (
     <motion.header
@@ -51,7 +51,12 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <motion.div className="flex items-center" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+          {/* Logo */}
+          <motion.div
+            className="flex items-center"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
             <Link href="/" className="flex items-center space-x-2">
               <motion.div
                 className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -60,7 +65,9 @@ export function Navbar() {
               >
                 <Image src={Logo} alt="Logo" width={50} height={50} />
               </motion.div>
-              <span className="text-3xl font-extrabold text-gray-900 tracking-wide">DevHar</span>
+              <span className="text-3xl font-extrabold text-gray-900 tracking-wide">
+                DevHar
+              </span>
             </Link>
           </motion.div>
 
@@ -68,7 +75,9 @@ export function Navbar() {
           <NavigationMenu className="hidden lg:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="hover:bg-blue-50 transition-colors">Products</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="hover:bg-blue-50 transition-colors">
+                  Products
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <motion.div
                     className="grid w-[600px] grid-cols-2 gap-3 p-4"
@@ -88,7 +97,9 @@ export function Navbar() {
                             href={product.href}
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">{product.name}</div>
+                            <div className="text-sm font-medium leading-none">
+                              {product.name}
+                            </div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                               {product.description}
                             </p>
@@ -100,10 +111,10 @@ export function Navbar() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              {["About", "Learn", "Contact"].map((item, index) => (
+              {["About", "Learn", "Contact"].map((item) => (
                 <NavigationMenuItem key={item}>
                   <Link href={`/${item.toLowerCase()}`} legacyBehavior passHref>
-                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                       {item}
                     </NavigationMenuLink>
                   </Link>
@@ -112,11 +123,18 @@ export function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
+          {/* Action Buttons */}
           <div className="flex items-center space-x-4">
-
-            <motion.div
-              whileHover={{ backgroundColor: "#f0f0f0", color: "#000" }}
+            {/* Desktop Sign In */}
+            <Link
+              href="https://devharfundsmart.investwell.app/"
+              className="hidden lg:inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
             >
+              Sign In
+            </Link>
+
+            {/* Download App */}
+            <motion.div whileHover={{ backgroundColor: "#f0f0f0", color: "#000" }}>
               <Button
                 size="lg"
                 variant="outline"
@@ -124,21 +142,15 @@ export function Navbar() {
                 onClick={() => {
                   const isAndroid = /Android/i.test(navigator.userAgent);
                   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-                  // const appScheme = "myapp://"; // Replace with your app's URL scheme
-                  const playStoreUrl = "https://play.google.com/store/apps/details?id=com.iw.mint.app&pcampaignid=web_share"; // Replace with your Play Store URL
-                  const appStoreUrl = "https://apps.apple.com/in/app/mint-by-investwell/id1479042500"; // Replace with your App Store URL
-
-                  // Try to open the app
-                  // window.location.href = appScheme;
-
-                  // Fallback to store if the app is not installed
+                  const playStoreUrl = "https://play.google.com/store/apps/details?id=com.iw.mint.app&pcampaignid=web_share";
+                  const appStoreUrl = "https://apps.apple.com/in/app/mint-by-investwell/id1479042500";
                   setTimeout(() => {
                     if (isAndroid) {
                       window.location.href = playStoreUrl;
                     } else if (isIOS) {
                       window.location.href = appStoreUrl;
                     }
-                  }, 2000); // Adjust timeout as needed
+                  }, 2000);
                 }}
               >
                 <Play className="mr-2 h-4 w-4 text-white" />
@@ -147,7 +159,7 @@ export function Navbar() {
               </Button>
             </motion.div>
 
-            {/* Mobile menu */}
+            {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -218,7 +230,10 @@ export function Navbar() {
                       key={item}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: (index + products.length) * 0.1, duration: 0.3 }}
+                      transition={{
+                        delay: (index + products.length) * 0.1,
+                        duration: 0.3,
+                      }}
                     >
                       <Link
                         href={`/${item.toLowerCase()}`}
@@ -236,9 +251,13 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.3 }}
                   >
-                    <Button variant="outline" className="w-full">
+                    <Link
+                      href="https://devharfundsmart.investwell.app/"
+                      className="w-full md:w-auto px-4 py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transition duration-200"
+                    >
                       Sign In
-                    </Button>
+                    </Link>
+
                     <Button className="w-full bg-blue-600 hover:bg-blue-700">
                       <Download className="mr-2 h-4 w-4" />
                       Download App
@@ -251,5 +270,5 @@ export function Navbar() {
         </div>
       </div>
     </motion.header>
-  )
+  );
 }

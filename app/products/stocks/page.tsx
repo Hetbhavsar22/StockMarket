@@ -42,7 +42,7 @@ export default function StocksPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-green-500/20 text-green-100 border-green-400/30">Zero Brokerage on Delivery</Badge>
+                <Badge className="bg-green-500/20 text-green-100 border-green-400/30">SEBI Registered</Badge>
                 <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
                   Trade Stocks with
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-300">
