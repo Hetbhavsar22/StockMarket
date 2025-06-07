@@ -1,5 +1,15 @@
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Phone } from "lucide-react"
-import Link from "next/link"
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube,
+  Mail,
+  Phone,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import Logo from "@/public/logo(white).png";
 
 export function Footer() {
   return (
@@ -9,14 +19,11 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">D</span>
-              </div>
-              <span className="text-2xl font-bold">devhar</span>
+              <Image src={Logo} alt="Logo" width={200} height={200} />
             </div>
             <p className="text-gray-400 leading-relaxed">
-              India's most trusted investment platform. Start your journey towards financial freedom with stocks, mutual
-              funds, and more.
+              India's most trusted investment platform. Start your journey
+              towards financial freedom with stocks, mutual funds, and more.
             </p>
             {/* <div className="flex space-x-4">
               <Link href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -42,32 +49,50 @@ export function Footer() {
             <h3 className="text-lg font-semibold">Products</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/products/stocks" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/products/stocks"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Stocks
                 </Link>
               </li>
               <li>
-                <Link href="/products/mutual-funds" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/products/mutual-funds"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Mutual Funds
                 </Link>
               </li>
               <li>
-                <Link href="/products/ipos" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/products/ipos"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   IPOs
                 </Link>
               </li>
               <li>
-                <Link href="/products/insurance" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/products/insurance"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Insurance
                 </Link>
               </li>
               <li>
-                <Link href="/products/fixed-deposits" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/products/fixed-deposits"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Fixed Deposits
                 </Link>
               </li>
               <li>
-                <Link href="/products/gold-etfs" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/products/gold-etfs"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Gold & ETFs
                 </Link>
               </li>
@@ -79,12 +104,18 @@ export function Footer() {
             <h3 className="text-lg font-semibold">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/about"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/contact"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -137,7 +168,10 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">© {new Date().getFullYear()} Devhar Technologies Pvt Ltd. All rights reserved.</div>
+            <div className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} Devhar Technologies Pvt Ltd. All
+              rights reserved.
+            </div>
             <div className="flex space-x-6 text-sm text-gray-400">
               {/* <span>SEBI Reg: INZ000123456</span> */}
               {/* <span>IRDAI Reg: 123456789</span> */}
@@ -147,13 +181,15 @@ export function Footer() {
 
           <div className="mt-4 text-xs text-gray-500 leading-relaxed">
             <p>
-              Investments in securities market are subject to market risks. Read all the related documents carefully
-              before investing. Registration granted by SEBI, membership of BASL (in case of IAs) and certification from
-              NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors.
+              Investments in securities market are subject to market risks. Read
+              all the related documents carefully before investing. Registration
+              granted by SEBI, membership of BASL (in case of IAs) and
+              certification from NISM in no way guarantee performance of the
+              intermediary or provide any assurance of returns to investors.
             </p>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

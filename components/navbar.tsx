@@ -15,7 +15,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Image from "next/image";
-import Logo from "@/public/logo.png";
+import Logo from "@/public/logo(black).png";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,23 +51,17 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <motion.div
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
             <Link href="/" className="flex items-center space-x-2">
-              <motion.div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
+              <div
+                className="rounded-lg flex items-center justify-center"
               >
-                <Image src={Logo} alt="Logo" width={50} height={50} />
-              </motion.div>
-              <span className="text-3xl font-extrabold text-gray-900 tracking-wide">
-                DevHar
-              </span>
+                <Image src={Logo} alt="Logo" width={150} height={200} />
+              </div>
             </Link>
           </motion.div>
 

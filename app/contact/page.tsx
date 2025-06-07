@@ -41,7 +41,7 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await fetch("/api/contact", {
@@ -49,7 +49,7 @@ export default function ContactPage() {
       body: JSON.stringify(formData),
       headers: { "Content-Type": "application/json" },
     });
-  
+
     if (res.ok) {
       toast.success("Message sent successfully!");
       setFormData({
@@ -66,7 +66,6 @@ export default function ContactPage() {
       toast.error("Something went wrong. Please try again.");
     }
   };
-  
 
   return (
     <div className="min-h-screen bg-white">
@@ -205,7 +204,12 @@ export default function ContactPage() {
                         <Input
                           id="firstName"
                           value={formData.firstName}
-                          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              firstName: e.target.value,
+                            })
+                          }
                           placeholder="Enter your first name"
                         />
                       </div>
@@ -215,7 +219,12 @@ export default function ContactPage() {
                           id="lastName"
                           placeholder="Enter your last name"
                           value={formData.lastName}
-                          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              lastName: e.target.value,
+                            })
+                          }
                         />
                       </div>
                     </div>
@@ -227,7 +236,9 @@ export default function ContactPage() {
                         type="email"
                         placeholder="Enter your email"
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
                       />
                     </div>
 
@@ -238,7 +249,9 @@ export default function ContactPage() {
                         type="tel"
                         placeholder="Enter your phone number"
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
                       />
                     </div>
 
@@ -248,7 +261,9 @@ export default function ContactPage() {
                         id="subject"
                         placeholder="What's this about?"
                         value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, subject: e.target.value })
+                        }
                       />
                     </div>
 
@@ -259,7 +274,9 @@ export default function ContactPage() {
                         placeholder="Tell us how we can help you..."
                         rows={5}
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, message: e.target.value })
+                        }
                       />
                     </div>
 
@@ -368,7 +385,7 @@ export default function ContactPage() {
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7341.544288199311!2d72.5505043566227!3d23.068813752181732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e83e84dcf27e5%3A0x79f02e934358e79b!2sShivshakti%20Apartment!5e0!3m2!1sen!2sin!4v1748238867463!5m2!1sen!2sin"
                         width="100%"
                         height="100%"
-                        style={{border:0}}
+                        style={{ border: 0 }}
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
@@ -410,7 +427,7 @@ export default function ContactPage() {
               {
                 question: "What are the charges for trading?",
                 answer:
-                  "Zero brokerage on delivery trades. ₹20 per order for intraday and F&O trading.",
+                  "There are charges for intraday and F&O trading, which are ₹20 per order.",
               },
               {
                 question: "Is my money safe with Devhar?",
@@ -441,21 +458,6 @@ export default function ContactPage() {
               </motion.div>
             ))}
           </div>
-
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-gray-600 mb-4">
-              Can't find what you're looking for?
-            </p>
-            <Button variant="outline" size="lg">
-              View All FAQs
-            </Button>
-          </motion.div>
         </div>
       </section>
     </div>
